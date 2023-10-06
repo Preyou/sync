@@ -19,9 +19,12 @@ export function warp<O extends object>(obj: O): Warp<O> {
           Array.from(subscriptions)
             .filter(([target]) => !target[originSymbol].has(proxy))
             .forEach(([target, transform]) => {
-              joinQueue(obj, prop as keyof O, () => {
+              joinQueue(target, prop, () => {
                 // @ts-ignore
                 const res = transform(object, prop, val)
+                if (!res) {
+                  return
+                }
                 const [k, v] = res instanceof Array ? res : [prop, res]
                 target[originSymbol].add(proxy)
                 origin.forEach(target[originSymbol].add)
@@ -31,9 +34,12 @@ export function warp<O extends object>(obj: O): Warp<O> {
             })
           origin.clear()
           observer.forEach((transform, target) => {
-            joinQueue(obj, prop as keyof O, () => {
+            joinQueue(target, prop, () => {
               // @ts-ignore
               const res = transform(object, prop, val)
+              if (!res) {
+                return
+              }
               const [k, v] = res instanceof Array ? res : [prop, res]
               // @ts-ignore
               getRaw(target)[k] = v

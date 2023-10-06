@@ -1,4 +1,4 @@
-import { Queue, ExecMode } from './types'
+import { Queue, ExecMode, Warp } from './types'
 
 let lastUpdate = 0
 let timer: NodeJS.Timeout
@@ -8,6 +8,7 @@ const debouncedOptions = { debounce: 500, maxWait: 1000 }
 const queue: Queue = new Map()
 
 export function execQueue(q: Queue) {
+  lastUpdate = Date.now()
   q.forEach((propQueue) => propQueue.forEach((fn) => fn()))
   queue.clear()
 }
@@ -47,7 +48,6 @@ export function setExecFrequency(
 }
 
 export function update() {
-  lastUpdate = Date.now()
   switch (execMode) {
     case 'auto':
       break
@@ -60,9 +60,10 @@ export function update() {
       break
   }
 }
-export function joinQueue<O extends object>(
+
+export function joinQueue<O extends Warp>(
   obj: O,
-  prop: keyof O,
+  prop: unknown,
   fn: () => void
 ) {
   if (!queue.has(obj)) {
