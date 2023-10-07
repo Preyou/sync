@@ -51,6 +51,9 @@ devDependencies:
   '@guijixing/vue-code-link':
     specifier: ^1.0.8
     version: registry.npmmirror.com/@guijixing/vue-code-link@1.0.8
+  '@iconify-json/fluent':
+    specifier: ^1.1.36
+    version: registry.npmmirror.com/@iconify-json/fluent@1.1.36
   '@iconify-json/material-symbols':
     specifier: ^1.1.58
     version: registry.npmmirror.com/@iconify-json/material-symbols@1.1.58
@@ -1145,6 +1148,14 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz}
     name: '@humanwhocodes/object-schema'
     version: 1.2.1
+    dev: true
+
+  registry.npmmirror.com/@iconify-json/fluent@1.1.36:
+    resolution: {integrity: sha512-PILEFvU5yU70SeM171PQ6dfFIHsWClELmkWtyYVcogRk7RhsEsxWnxF+gTHpK9zSfQy4YQtuQPNtql7bHI8hNA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify-json/fluent/-/fluent-1.1.36.tgz}
+    name: '@iconify-json/fluent'
+    version: 1.1.36
+    dependencies:
+      '@iconify/types': registry.npmmirror.com/@iconify/types@2.0.0
     dev: true
 
   registry.npmmirror.com/@iconify-json/material-symbols@1.1.58:

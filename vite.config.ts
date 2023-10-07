@@ -122,7 +122,7 @@ export default defineConfig({
       defineSlots: true,
       defineModels: true,
       namedTemplate: false,
-      exportProps: false,
+      exportProps: true,
 
       plugins: {
         vue: Vue({

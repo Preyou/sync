@@ -44,17 +44,18 @@
     "public"
   ],
   "include": [
-    "src",
-    "src/samples",
-    "globals",
-    "lib",
-    "types/**/*.d.ts",
-    "src/env.d.ts",
-    "vite.config.ts",
-    ".eslintrc.js",
-    "shims.d.ts"
+    "./src",
+    "./src/samples",
+    "./globals",
+    "./lib",
+    "./types/**/*.d.ts",
+    "./src/env.d.ts",
+    "./vite.config.ts",
+    "./.eslintrc.js",
+    "./shims.d.ts"
   ],
   "vueCompilerOptions": {
+    "target": 3,
     "plugins": [
       "@vue-macros/volar/define-options",
       "@vue-macros/volar/define-models",

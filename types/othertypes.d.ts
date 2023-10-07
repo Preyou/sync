@@ -1,6 +1,7 @@
 import '@vue/runtime-core'
 import 'vue-router'
 import 'naive-ui'
+import '@vueuse/core'
 
 export {}
 
@@ -8,6 +9,9 @@ declare module '@vue/runtime-core' {}
 declare global {
   declare namespace NaiveUI {
     export * from 'naive-ui'
+  }
+  declare namespace Vueuse {
+    export * from '@vueuse/core'
   }
 }
 declare module 'vue-router' {

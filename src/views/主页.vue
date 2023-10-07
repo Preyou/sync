@@ -9,7 +9,7 @@
         :value="$router.currentRoute.value.name"
       >
         <template #logo>
-          <i-ph-square-split-horizontal-fill />
+          <i-material-symbols-sync-outline />
         </template>
         <template #title> split-box </template>
         <template #mate>
