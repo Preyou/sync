@@ -3,47 +3,86 @@ import {
   rawSymbol,
   subscriptionsSymbol,
   originSymbol,
+  setterSymbol,
 } from './symbols'
-import { joinQueue } from './sync'
-import { Warp, GetRaw, TransformFn, WarpProps } from './types'
+import { joinTransformQueue, joinMutateQueue } from './sync'
+import { Warp, TransformFn, WarpOptions, GetRaw } from './types'
 import { getRaw, isWarp } from './utils'
 
-export function warp<O extends object>(obj: O): Warp<O> {
+function set<O extends object, K extends keyof O>(
+  object: O,
+  prop: K,
+  val: O[K],
+  {
+    subscriptions,
+    observer,
+    origin,
+    proxy,
+  }: {
+    subscriptions: Map<Warp, TransformFn>
+    observer: Map<Warp, TransformFn>
+    origin: Set<Warp>
+    proxy: Warp<O>
+  }
+) {
+  Array.from(subscriptions)
+    .filter(([target]) => !target[originSymbol].has(proxy))
+    .forEach(([target, transform]) => {
+      joinTransformQueue(target, prop, () => {
+        const res = transform(object, prop, val)
+        if (!res) {
+          return
+        }
+        target[originSymbol].add(proxy)
+        origin.forEach(target[originSymbol].add)
+        if (res instanceof Array) {
+          res.forEach(([k, v]) => {
+            joinMutateQueue(target, k, () => Reflect.set(target, k, v))
+          })
+        } else {
+          // @ts-ignore
+          joinMutateQueue(target, prop, () => Reflect.set(target, prop, res))
+        }
+      })
+    })
+  Array.from(observer)
+    .filter(([target]) => !target[originSymbol].has(proxy))
+    .forEach(([target, transform]) => {
+      joinTransformQueue(target, prop, () => {
+        const res = transform(object, prop, val)
+        if (!res) {
+          return
+        }
+        const raw = getRaw(target)
+        if (res instanceof Array) {
+          res.forEach(([k, v]) => {
+            joinMutateQueue(raw, k, () => target[setterSymbol](raw, k, v))
+          })
+        } else {
+          // @ts-ignore
+          joinMutateQueue(raw, prop, () => target[setterSymbol](raw, prop, res))
+        }
+      })
+    })
+  origin.clear()
+}
+
+export function warp<O extends object>(
+  obj: O,
+  { watch, setter }: WarpOptions<O> = {}
+): Warp<O> {
   const subscriptions = new Map<Warp, TransformFn>()
   const observer = new Map<Warp, TransformFn>()
   const origin = new Set<Warp>()
-  const proxy = isWarp(obj)
+  const proxy: Warp<O> = isWarp(obj)
     ? (obj as Warp<O>)
     : (new Proxy(obj, {
         set(object, prop, val) {
-          Array.from(subscriptions)
-            .filter(([target]) => !target[originSymbol].has(proxy))
-            .forEach(([target, transform]) => {
-              joinQueue(target, prop, () => {
-                // @ts-ignore
-                const res = transform(object, prop, val)
-                if (!res) {
-                  return
-                }
-                const [k, v] = res instanceof Array ? res : [prop, res]
-                target[originSymbol].add(proxy)
-                origin.forEach(target[originSymbol].add)
-                // @ts-ignore
-                target[k] = v
-              })
-            })
-          origin.clear()
-          observer.forEach((transform, target) => {
-            joinQueue(target, prop, () => {
-              // @ts-ignore
-              const res = transform(object, prop, val)
-              if (!res) {
-                return
-              }
-              const [k, v] = res instanceof Array ? res : [prop, res]
-              // @ts-ignore
-              getRaw(target)[k] = v
-            })
+          set(proxy, prop as keyof O, val, {
+            subscriptions,
+            observer,
+            origin,
+            proxy,
           })
           return Reflect.set(object, prop, val)
         },
@@ -57,18 +96,27 @@ export function warp<O extends object>(obj: O): Warp<O> {
               return origin
             case rawSymbol:
               return obj
+            case setterSymbol:
+              return (
+                setter ??
+                (<K extends keyof O>(o: O, p: K, v: O[K]) => {
+                  Reflect.set(o, p, v)
+                })
+              )
             default:
               return Reflect.get(object, prop)
           }
         },
       }) as Warp<O>)
+  watch?.((...arg) => set(...arg, { subscriptions, observer, origin, proxy }))
+
   return proxy
 }
 
 export function control<S extends Warp, T extends Warp>(
   source: S,
   target: T,
-  transform: TransformFn<GetRaw<S>, GetRaw<T>> = (obj, prop, val) => val
+  transform: TransformFn = (obj, prop, val) => val
 ) {
   source[subscriptionsSymbol].set(target, transform)
 }
@@ -76,7 +124,7 @@ export function control<S extends Warp, T extends Warp>(
 export function observe<S extends Warp, T extends Warp>(
   source: S,
   target: T,
-  transform: TransformFn<GetRaw<T>, GetRaw<S>> = (obj, prop, val) => val
+  transform: TransformFn = (obj, prop, val) => val
 ) {
   target[observerSymbol].set(source, transform)
 }

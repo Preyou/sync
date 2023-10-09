@@ -242,6 +242,7 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'), // 路径别名
       '@g': resolve(__dirname, 'globals'), // 路径别名
       '@lib': resolve(__dirname, 'lib'), // 路径别名
+      '@geo': resolve(__dirname, 'GeoScene'), // 路径别名
     },
   },
 })

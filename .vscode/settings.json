@@ -9,6 +9,7 @@
         "@": "${workspaceFolder}/src",
         "@g": "${workspaceFolder}/globals",
         "@lib": "${workspaceFolder}/lib",
+        "@geo": "${workspaceFolder}/GeoScene",
     },
     "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -31,8 +31,10 @@
     "unpublish": "npm unpublish --force --registry https://registry.npmjs.org"
   },
   "dependencies": {
+    "@geoscene/core": "^4.27.2",
     "@headerless/split-box": "^0.2.71",
     "@highlightjs/vue-plugin": "^2.1.0",
+    "@turf/turf": "^6.5.0",
     "@vue/repl": "^2.5.8",
     "@vueuse/components": "^10.4.1",
     "@vueuse/core": "^10.4.1",

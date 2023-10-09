@@ -5,16 +5,22 @@ let timer: NodeJS.Timeout
 let execMode: ExecMode = 'auto'
 const debouncedOptions = { debounce: 500, maxWait: 1000 }
 
-const queue: Queue = new Map()
+const transformQueue: Queue = new Map()
+const mutateQueue: Queue = new Map()
 
-export function execQueue(q: Queue) {
-  lastUpdate = Date.now()
+function execQueue(q: Queue) {
   q.forEach((propQueue) => propQueue.forEach((fn) => fn()))
-  queue.clear()
+  q.clear()
+}
+
+export function runQueue() {
+  lastUpdate = Date.now()
+  execQueue(transformQueue)
+  queueMicrotask(() => execQueue(mutateQueue))
 }
 
 function autoExec() {
-  execQueue(queue)
+  runQueue()
   if (execMode === 'auto') {
     requestAnimationFrame(autoExec)
   }
@@ -26,10 +32,10 @@ export function debouncedExec({
 } = {}) {
   clearTimeout(timer)
   if (Date.now() - lastUpdate > maxWait) {
-    execQueue(queue)
+    runQueue()
     return
   }
-  timer = setTimeout(() => execQueue(queue), debounce)
+  timer = setTimeout(() => runQueue(), debounce)
 }
 
 export function setExecFrequency(
@@ -61,18 +67,31 @@ export function update() {
   }
 }
 
-export function joinQueue<O extends Warp>(
+export function joinTransformQueue<O extends Warp>(
   obj: O,
   prop: unknown,
   fn: () => void
 ) {
-  if (!queue.has(obj)) {
-    queue.set(obj, new Map())
+  if (!transformQueue.has(obj)) {
+    transformQueue.set(obj, new Map())
   }
 
-  const propQueue = queue.get(obj)!
+  const propQueue = transformQueue.get(obj)!
   propQueue.set(prop, fn)
   update()
+}
+
+export function joinMutateQueue<O extends object, K extends keyof O = keyof O>(
+  obj: O,
+  prop: K,
+  fn: () => void
+) {
+  if (!mutateQueue.has(obj)) {
+    mutateQueue.set(obj, new Map())
+  }
+
+  const propQueue = mutateQueue.get(obj)!
+  propQueue.set(prop, fn)
 }
 
 setExecFrequency()

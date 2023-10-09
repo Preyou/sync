@@ -24,6 +24,9 @@
       ],
       "@lib/*": [
         "lib/*"
+      ],
+      "@geo/*": [
+        "GeoScene/*"
       ]
     },
     "resolveJsonModule": true,
@@ -47,6 +50,7 @@
     "./src",
     "./src/samples",
     "./globals",
+    "./GeoScene",
     "./lib",
     "./types/**/*.d.ts",
     "./src/env.d.ts",

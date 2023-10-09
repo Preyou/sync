@@ -2,18 +2,23 @@ import '@vue/runtime-core'
 import 'vue-router'
 import 'naive-ui'
 import '@vueuse/core'
-
-export {}
+import 'vue'
 
 declare module '@vue/runtime-core' {}
 declare global {
+  declare namespace Vue {
+    export * from 'vue'
+  }
   declare namespace NaiveUI {
     export * from 'naive-ui'
   }
   declare namespace Vueuse {
     export * from '@vueuse/core'
   }
+
+  export import GeoScene = __geoscene
 }
+
 declare module 'vue-router' {
   interface RouteMeta {
     /** 显示的标题，如果没有则取路由的name */
