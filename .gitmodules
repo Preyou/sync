@@ -1,0 +1,6 @@
+[submodule "GeoScene"]
+	path = GeoScene
+	url = ./GeoScene
+[submodule "globals"]
+	path = globals
+	url = ./globals
