@@ -21,10 +21,10 @@
   generic="T extends typeof GeoScene.SceneView | typeof GeoScene.MapView"
 >
 import Map from '@geoscene/core/Map'
-import { viewSymbol, sceneViewSymbol, mapViewSymbol } from '@g/symbols'
 import { whenever, useDark, computedWithControl } from '@vueuse/core'
 import darkTheme from '@geoscene/core/assets/geoscene/themes/dark/main.css?url'
 import lightTheme from '@geoscene/core/assets/geoscene/themes/light/main.css?url'
+import { viewSymbol, sceneViewSymbol, mapViewSymbol } from '../symbols'
 
 const isDark = useDark()
 

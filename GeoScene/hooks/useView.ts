@@ -1,4 +1,4 @@
-import { viewSymbol, sceneViewSymbol, mapViewSymbol } from '@g/symbols'
+import { viewSymbol, sceneViewSymbol, mapViewSymbol } from '../symbols'
 
 export function useView() {
   const view = inject(viewSymbol)
