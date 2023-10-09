@@ -5,8 +5,8 @@ import {
   originSymbol,
   setterSymbol,
 } from './symbols'
-import { joinTransformQueue, joinMutateQueue } from './sync'
-import { Warp, TransformFn, WarpOptions, GetRaw } from './types'
+import { joinTransformQueue, joinMutateQueue, joinLockQueue } from './sync'
+import { Warp, TransformFn, WarpOptions } from './types'
 import { getRaw, isWarp } from './utils'
 
 function set<O extends object, K extends keyof O>(
@@ -25,6 +25,7 @@ function set<O extends object, K extends keyof O>(
     proxy: Warp<O>
   }
 ) {
+  joinLockQueue(proxy)
   Array.from(subscriptions)
     .filter(([target]) => !target[originSymbol].has(proxy))
     .forEach(([target, transform]) => {
@@ -46,7 +47,7 @@ function set<O extends object, K extends keyof O>(
       })
     })
   Array.from(observer)
-    .filter(([target]) => !target[originSymbol].has(proxy))
+    .filter(([target]) => !proxy[originSymbol].has(target))
     .forEach(([target, transform]) => {
       joinTransformQueue(target, prop, () => {
         const res = transform(object, prop, val)
@@ -64,7 +65,6 @@ function set<O extends object, K extends keyof O>(
         }
       })
     })
-  origin.clear()
 }
 
 export function warp<O extends object>(

@@ -1,4 +1,5 @@
 import { Queue, ExecMode, Warp } from './types'
+import { originSymbol } from './symbols'
 
 let lastUpdate = 0
 let timer: NodeJS.Timeout
@@ -7,6 +8,7 @@ const debouncedOptions = { debounce: 500, maxWait: 1000 }
 
 const transformQueue: Queue = new Map()
 const mutateQueue: Queue = new Map()
+const lockQueue = new Set<Warp>()
 
 function execQueue(q: Queue) {
   q.forEach((propQueue) => propQueue.forEach((fn) => fn()))
@@ -16,7 +18,11 @@ function execQueue(q: Queue) {
 export function runQueue() {
   lastUpdate = Date.now()
   execQueue(transformQueue)
-  queueMicrotask(() => execQueue(mutateQueue))
+  queueMicrotask(() => {
+    execQueue(mutateQueue)
+    lockQueue.forEach((warp) => warp[originSymbol].clear())
+    lockQueue.clear()
+  })
 }
 
 function autoExec() {
@@ -92,6 +98,10 @@ export function joinMutateQueue<O extends object, K extends keyof O = keyof O>(
 
   const propQueue = mutateQueue.get(obj)!
   propQueue.set(prop, fn)
+}
+
+export function joinLockQueue(warp: Warp) {
+  lockQueue.add(warp)
 }
 
 setExecFrequency()
