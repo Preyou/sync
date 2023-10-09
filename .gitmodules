@@ -1,6 +1,6 @@
 [submodule "GeoScene"]
 	path = GeoScene
-	url = ./GeoScene
+	url = https://github.com/Preyou/GeoScene.git
 [submodule "globals"]
 	path = globals
-	url = ./globals
+	url = https://github.com/Preyou/globals.git
