@@ -57,6 +57,7 @@ function set<O extends object, K extends keyof O>(
         const raw = getRaw(target)
         if (res instanceof Array) {
           res.forEach(([k, v]) => {
+            // @ts-ignore
             joinMutateQueue(raw, k, () => target[setterSymbol](raw, k, v))
           })
         } else {
@@ -70,7 +71,7 @@ function set<O extends object, K extends keyof O>(
 export function warp<O extends object>(
   obj: O,
   { watch, setter }: WarpOptions<O> = {}
-): Warp<O> {
+): O extends Warp ? O : Warp<O> {
   const subscriptions = new Map<Warp, TransformFn>()
   const observer = new Map<Warp, TransformFn>()
   const origin = new Set<Warp>()
@@ -110,15 +111,21 @@ export function warp<O extends object>(
       }) as Warp<O>)
   watch?.((...arg) => set(...arg, { subscriptions, observer, origin, proxy }))
 
-  return proxy
+  return proxy as O extends Warp ? O : Warp<O>
 }
 
 export function control<S extends Warp, T extends Warp>(
   source: S,
   target: T,
-  transform: TransformFn = (obj, prop, val) => val
+  transform: TransformFn<S, T> = (obj, prop, val) =>
+    val as unknown as T[keyof T]
 ) {
   source[subscriptionsSymbol].set(target, transform)
+  return {
+    stop() {
+      source[subscriptionsSymbol].delete(target)
+    },
+  }
 }
 
 export function observe<S extends Warp, T extends Warp>(
@@ -127,6 +134,11 @@ export function observe<S extends Warp, T extends Warp>(
   transform: TransformFn = (obj, prop, val) => val
 ) {
   target[observerSymbol].set(source, transform)
+  return {
+    stop() {
+      source[observerSymbol].delete(target)
+    },
+  }
 }
 
 export function bind<S extends Warp, T extends Warp>(
@@ -136,14 +148,26 @@ export function bind<S extends Warp, T extends Warp>(
     control: c = (obj, prop, val) => val,
     observe: o = (obj, prop, val) => val,
   }: {
-    control?: Parameters<typeof control<S, T>>[2]
+    control?: TransformFn<S, T>
     observe?: Parameters<typeof observe<S, T>>[2]
   } = {}
 ) {
-  control(source, target, c)
-  observe(source, target, o)
+  const { stop: stopControl } = control(source, target, c)
+  const { stop: stopObserve } = observe(source, target, o)
+  return {
+    stopControl,
+    stopObserve,
+    stop: () => {
+      stopControl()
+      stopObserve()
+    },
+  }
 }
 
+/**
+ *
+ * @deprecated
+ */
 export function subscribe<S extends Warp>(source: S) {
   return {
     control: <T extends Warp>(

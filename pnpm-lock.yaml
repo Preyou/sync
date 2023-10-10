@@ -223,8 +223,8 @@ devDependencies:
     specifier: ^1.3.18
     version: registry.npmmirror.com/unplugin-vue-define-options@1.3.18(rollup@3.29.1)(vue@3.3.4)
   unplugin-vue-macros:
-    specifier: ^2.5.1
-    version: registry.npmmirror.com/unplugin-vue-macros@2.5.1(@vueuse/core@10.4.1)(rollup@3.29.1)(vite@4.4.9)(vue@3.3.4)
+    specifier: ^2.6.1
+    version: registry.npmmirror.com/unplugin-vue-macros@2.6.1(@vueuse/core@10.4.1)(rollup@3.29.1)(vite@4.4.9)(vue@3.3.4)
   unplugin-vue-router:
     specifier: ^0.6.4
     version: registry.npmmirror.com/unplugin-vue-router@0.6.4(rollup@3.29.1)(vue-router@4.2.4)(vue@3.3.4)
@@ -3954,7 +3954,7 @@ packages:
     dependencies:
       '@vue-macros/api': registry.npmmirror.com/@vue-macros/api@0.8.6(rollup@3.29.1)(vue@3.3.4)
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
     transitivePeerDependencies:
       - rollup
       - vue
@@ -3982,7 +3982,7 @@ packages:
     engines: {node: '>=16.14.0'}
     dependencies:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
     transitivePeerDependencies:
       - rollup
       - vue
@@ -4068,15 +4068,15 @@ packages:
       '@vue-macros/api': registry.npmmirror.com/@vue-macros/api@0.8.6(rollup@3.29.1)(vue@3.3.4)
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
       rollup: registry.npmmirror.com/rollup@3.29.1
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
       vue: registry.npmmirror.com/vue@3.3.4
     dev: true
 
-  registry.npmmirror.com/@vue-macros/define-models@1.0.16(@vueuse/core@10.4.1)(rollup@3.29.1)(vue@3.3.4):
-    resolution: {integrity: sha512-+/3tMcCP6UCdmzn4R8IG16eAk8JNSndsKguq5PNXfg1OZaAmbskGUA5QGOUqNKxynP1rtcCtwEJB8CnzMiiAUQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue-macros/define-models/-/define-models-1.0.16.tgz}
-    id: registry.npmmirror.com/@vue-macros/define-models/1.0.16
+  registry.npmmirror.com/@vue-macros/define-models@1.1.0(@vueuse/core@10.4.1)(rollup@3.29.1)(vue@3.3.4):
+    resolution: {integrity: sha512-EaayVKSnlDcu6TZEQyzYQClUL4Owa2DUOALcpJjREZ3VMCWakzyMNdfrUTwxWqNlS9wh59/UZVgZhjb+/o0iww==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue-macros/define-models/-/define-models-1.1.0.tgz}
+    id: registry.npmmirror.com/@vue-macros/define-models/1.1.0
     name: '@vue-macros/define-models'
-    version: 1.0.16
+    version: 1.1.0
     engines: {node: '>=16.14.0'}
     peerDependencies:
       '@vueuse/core': '>=9.0.0'
@@ -4087,7 +4087,7 @@ packages:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
       '@vueuse/core': registry.npmmirror.com/@vueuse/core@10.4.1(vue@3.3.4)
       ast-walker-scope: registry.npmmirror.com/ast-walker-scope@0.5.0(rollup@3.29.1)
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
     transitivePeerDependencies:
       - rollup
       - vue
@@ -4105,7 +4105,7 @@ packages:
       '@vue-macros/api': registry.npmmirror.com/@vue-macros/api@0.8.6(rollup@3.29.1)(vue@3.3.4)
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
       rollup: registry.npmmirror.com/rollup@3.29.1
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
       vue: registry.npmmirror.com/vue@3.3.4
     dev: true
 
@@ -4119,7 +4119,7 @@ packages:
       vue: ^2.7.0 || ^3.2.25
     dependencies:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
       vue: registry.npmmirror.com/vue@3.3.4
     transitivePeerDependencies:
       - rollup
@@ -4137,7 +4137,7 @@ packages:
     dependencies:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
       '@vue-macros/reactivity-transform': registry.npmmirror.com/@vue-macros/reactivity-transform@0.3.23(rollup@3.29.1)(vue@3.3.4)
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
       vue: registry.npmmirror.com/vue@3.3.4
     transitivePeerDependencies:
       - rollup
@@ -4153,7 +4153,7 @@ packages:
       vue: ^2.7.0 || ^3.0.0
     dependencies:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
       vue: registry.npmmirror.com/vue@3.3.4
     transitivePeerDependencies:
       - rollup
@@ -4169,7 +4169,7 @@ packages:
       vue: ^2.7.0 || ^3.0.0
     dependencies:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
       vue: registry.npmmirror.com/vue@3.3.4
     transitivePeerDependencies:
       - rollup
@@ -4203,7 +4203,7 @@ packages:
     dependencies:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
       '@vue/compiler-sfc': registry.npmmirror.com/@vue/compiler-sfc@3.3.4
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
       vue: registry.npmmirror.com/vue@3.3.4
     transitivePeerDependencies:
       - rollup
@@ -4219,7 +4219,7 @@ packages:
       vue: ^2.7.0 || ^3.2.25
     dependencies:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
       vue: registry.npmmirror.com/vue@3.3.4
     transitivePeerDependencies:
       - rollup
@@ -4236,7 +4236,7 @@ packages:
     dependencies:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
       '@vue/compiler-sfc': registry.npmmirror.com/@vue/compiler-sfc@3.3.4
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
       vue: registry.npmmirror.com/vue@3.3.4
     transitivePeerDependencies:
       - rollup
@@ -4250,7 +4250,7 @@ packages:
     engines: {node: '>=16.14.0'}
     dependencies:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
     transitivePeerDependencies:
       - rollup
       - vue
@@ -4264,7 +4264,7 @@ packages:
     engines: {node: '>=16.14.0'}
     dependencies:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
     transitivePeerDependencies:
       - rollup
       - vue
@@ -4279,7 +4279,7 @@ packages:
     dependencies:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
       '@vue/compiler-dom': registry.npmmirror.com/@vue/compiler-dom@3.3.4
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
     transitivePeerDependencies:
       - rollup
       - vue
@@ -4299,7 +4299,7 @@ packages:
       '@vue/compiler-core': registry.npmmirror.com/@vue/compiler-core@3.3.4
       '@vue/shared': registry.npmmirror.com/@vue/shared@3.3.4
       magic-string: registry.npmmirror.com/magic-string@0.30.3
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
       vue: registry.npmmirror.com/vue@3.3.4
     transitivePeerDependencies:
       - rollup
@@ -4314,7 +4314,7 @@ packages:
     dependencies:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
       '@vue/compiler-dom': registry.npmmirror.com/@vue/compiler-dom@3.3.4
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
     transitivePeerDependencies:
       - rollup
       - vue
@@ -4328,7 +4328,7 @@ packages:
     engines: {node: '>=16.14.0'}
     dependencies:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
     transitivePeerDependencies:
       - rollup
       - vue
@@ -4342,7 +4342,21 @@ packages:
     engines: {node: '>=16.14.0'}
     dependencies:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/short-bind@0.1.0(rollup@3.29.1)(vue@3.3.4):
+    resolution: {integrity: sha512-oJQDo+ZYA0ljFVZg6jqZ7jSrSqIK0pvY46uCMs9E5UmaOy374wjVP5RS0l7D1uBz6PTLnSmNh5/7QH4WYct4DQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue-macros/short-bind/-/short-bind-0.1.0.tgz}
+    id: registry.npmmirror.com/@vue-macros/short-bind/0.1.0
+    name: '@vue-macros/short-bind'
+    version: 0.1.0
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
+      '@vue/compiler-core': registry.npmmirror.com/@vue/compiler-core@3.3.4
     transitivePeerDependencies:
       - rollup
       - vue
@@ -4356,7 +4370,7 @@ packages:
     engines: {node: '>=16.14.0'}
     dependencies:
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
     transitivePeerDependencies:
       - rollup
       - vue
@@ -13703,7 +13717,7 @@ packages:
       pkg-types: registry.npmmirror.com/pkg-types@1.0.3
       scule: registry.npmmirror.com/scule@1.0.0
       strip-literal: registry.npmmirror.com/strip-literal@1.3.0
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -13955,7 +13969,7 @@ packages:
     dependencies:
       '@antfu/utils': registry.npmmirror.com/@antfu/utils@0.7.6
       rollup: registry.npmmirror.com/rollup@3.29.1
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
       vite: registry.npmmirror.com/vite@4.4.9(@types/node@20.6.0)
     dev: true
 
@@ -14089,11 +14103,11 @@ packages:
       - vue
     dev: true
 
-  registry.npmmirror.com/unplugin-vue-macros@2.5.1(@vueuse/core@10.4.1)(rollup@3.29.1)(vite@4.4.9)(vue@3.3.4):
-    resolution: {integrity: sha512-huchZvHJQEbfr8jtED2KG5flpwg7y434eUhc+tSxu8DE3N6fehDk1HkbR29N3HHPA6iXeiDJ99aHlVdnism2uQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/unplugin-vue-macros/-/unplugin-vue-macros-2.5.1.tgz}
-    id: registry.npmmirror.com/unplugin-vue-macros/2.5.1
+  registry.npmmirror.com/unplugin-vue-macros@2.6.1(@vueuse/core@10.4.1)(rollup@3.29.1)(vite@4.4.9)(vue@3.3.4):
+    resolution: {integrity: sha512-YHqCZgZPasdRwmmuautjXkV6uOQ0amg/qHnXyUMgLI8/FkgtfGx+QgeknXpLgiOC2PVXlsuCqbcGnHJ/N4VtUg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/unplugin-vue-macros/-/unplugin-vue-macros-2.6.1.tgz}
+    id: registry.npmmirror.com/unplugin-vue-macros/2.6.1
     name: unplugin-vue-macros
-    version: 2.5.1
+    version: 2.6.1
     engines: {node: '>=16.14.0'}
     peerDependencies:
       vue: ^2.7.0 || ^3.2.25
@@ -14103,7 +14117,7 @@ packages:
       '@vue-macros/chain-call': registry.npmmirror.com/@vue-macros/chain-call@0.1.6(rollup@3.29.1)(vue@3.3.4)
       '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.8.0(rollup@3.29.1)(vue@3.3.4)
       '@vue-macros/define-emit': registry.npmmirror.com/@vue-macros/define-emit@0.1.16(vue@3.3.4)
-      '@vue-macros/define-models': registry.npmmirror.com/@vue-macros/define-models@1.0.16(@vueuse/core@10.4.1)(rollup@3.29.1)(vue@3.3.4)
+      '@vue-macros/define-models': registry.npmmirror.com/@vue-macros/define-models@1.1.0(@vueuse/core@10.4.1)(rollup@3.29.1)(vue@3.3.4)
       '@vue-macros/define-prop': registry.npmmirror.com/@vue-macros/define-prop@0.2.8(vue@3.3.4)
       '@vue-macros/define-props': registry.npmmirror.com/@vue-macros/define-props@1.0.21(@vue-macros/reactivity-transform@0.3.23)(rollup@3.29.1)(vue@3.3.4)
       '@vue-macros/define-props-refs': registry.npmmirror.com/@vue-macros/define-props-refs@1.1.10(rollup@3.29.1)(vue@3.3.4)
@@ -14120,9 +14134,10 @@ packages:
       '@vue-macros/setup-block': registry.npmmirror.com/@vue-macros/setup-block@0.2.18(rollup@3.29.1)(vue@3.3.4)
       '@vue-macros/setup-component': registry.npmmirror.com/@vue-macros/setup-component@0.16.19(rollup@3.29.1)(vue@3.3.4)
       '@vue-macros/setup-sfc': registry.npmmirror.com/@vue-macros/setup-sfc@0.16.3(rollup@3.29.1)(vue@3.3.4)
+      '@vue-macros/short-bind': registry.npmmirror.com/@vue-macros/short-bind@0.1.0(rollup@3.29.1)(vue@3.3.4)
       '@vue-macros/short-emits': registry.npmmirror.com/@vue-macros/short-emits@1.4.10(rollup@3.29.1)(vue@3.3.4)
       '@vue-macros/short-vmodel': registry.npmmirror.com/@vue-macros/short-vmodel@1.3.0(rollup@3.29.1)(vue@3.3.4)
-      unplugin: registry.npmmirror.com/unplugin@1.4.0
+      unplugin: registry.npmmirror.com/unplugin@1.5.0
       unplugin-combine: registry.npmmirror.com/unplugin-combine@0.7.0(rollup@3.29.1)(vite@4.4.9)
       unplugin-vue-define-options: registry.npmmirror.com/unplugin-vue-define-options@1.3.18(rollup@3.29.1)(vue@3.3.4)
       vue: registry.npmmirror.com/vue@3.3.4
@@ -14179,6 +14194,17 @@ packages:
     resolution: {integrity: sha512-5x4eIEL6WgbzqGtF9UV8VEC/ehKptPXDS6L2b0mv4FRMkJxRtjaJfOWDd6a8+kYbqsjklix7yWP0N3SUepjXcg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/unplugin/-/unplugin-1.4.0.tgz}
     name: unplugin
     version: 1.4.0
+    dependencies:
+      acorn: registry.npmmirror.com/acorn@8.10.0
+      chokidar: registry.npmmirror.com/chokidar@3.5.3
+      webpack-sources: registry.npmmirror.com/webpack-sources@3.2.3
+      webpack-virtual-modules: registry.npmmirror.com/webpack-virtual-modules@0.5.0
+    dev: true
+
+  registry.npmmirror.com/unplugin@1.5.0:
+    resolution: {integrity: sha512-9ZdRwbh/4gcm1JTOkp9lAkIDrtOyOxgHmY7cjuwI8L/2RTikMcVG25GsZwNAgRuap3iDw2jeq7eoqtAsz5rW3A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/unplugin/-/unplugin-1.5.0.tgz}
+    name: unplugin
+    version: 1.5.0
     dependencies:
       acorn: registry.npmmirror.com/acorn@8.10.0
       chokidar: registry.npmmirror.com/chokidar@3.5.3

@@ -6,12 +6,12 @@ import {
   setterSymbol,
 } from './symbols'
 
-export interface TransformFn {
-  <S extends object, T extends object, K extends keyof S = keyof S>(
-    object: S,
-    prop: K,
-    val: S[K]
-  ): T[keyof T] | [keyof T, T[keyof T]][] | void | null
+export interface TransformFn<S extends object = any, T extends object = any> {
+  <O extends S>(object: O, prop: keyof S, val: O[keyof O]):
+    | T[keyof T]
+    | [keyof T, T[keyof T]][]
+    | void
+    | null
 }
 
 export type Setter<O extends object = object> = <K extends keyof O>(

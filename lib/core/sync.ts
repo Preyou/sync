@@ -104,4 +104,4 @@ export function joinLockQueue(warp: Warp) {
   lockQueue.add(warp)
 }
 
-setExecFrequency()
+setExecFrequency('debounce')

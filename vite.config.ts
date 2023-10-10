@@ -127,7 +127,6 @@ export default defineConfig({
       plugins: {
         vue: Vue({
           include: [/\.vue$/, /\.setup\.[cm]?[jt]sx?$/, /.md$/],
-          reactivityTransform: resolve(__dirname, 'src'),
           template: {
             compilerOptions: {
               nodeTransforms: [],
